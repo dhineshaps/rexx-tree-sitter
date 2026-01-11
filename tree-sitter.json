@@ -1,0 +1,42 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "rexx",
+      "camelcase": "Rexx",
+      "title": "Rexx",
+      "scope": "source.rexx",
+      "file-types": [
+        "rexx"
+      ],
+      "injection-regex": "^rexx$",
+      "class-name": "TreeSitterRexx"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "To Create Rexx Control Flow",
+    "authors": [
+      {
+        "name": "Dhinesh Palanisamy",
+        "email": "dhinesh.palanisamy@yahoo.com",
+        "url": ""
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/dhineshaps/rexx-tree-sitter.git",
+      "funding": ""
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "java": false,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}
