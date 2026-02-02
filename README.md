@@ -13,5 +13,10 @@
 
 5)tree-sitter init -> to create structure
 
+6) Generate  -> tree-sitter generate
+
+7) Parse -> tree-sitter parse test.rexx
 
 
+
+![alt text](image.png)

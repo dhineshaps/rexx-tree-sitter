@@ -4,14 +4,55 @@
  * @license MIT
  */
 
+
+///https://www.cs.ox.ac.uk/people/ian.collier/Docs/rexx_info/whole.html use this as reference
+
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 
-export default grammar({
-  name: "rexx",
+module.exports = grammar({
+  name: 'rexx',
+
+  extras: $ => [
+    /\s+/,
+    $.comment,
+  ],
 
   rules: {
-    // TODO: add the actual grammar rules
-    source_file: $ => "hello"
+
+    source_file: $ => repeat($.statement),
+
+
+    statement: $ =>
+      choice(
+        $.say_statement,
+        $.identifier,
+        $.string
+      ),
+
+    say_statement: $ => seq(
+      'say',
+      choice(
+      $.string,   //this will handle pattern of words with doub;r quotes  "hello"
+      $.identifier // this will handle hello
+      )
+    ),
+
+    string: $ => token(choice 
+                  (/"[^"]*"/, //will consider entire thing as one text, will ake it black box
+                   /'[^']*'/
+                  )),
+
+    identifier: $ => /[a-zA-Z_=+*/]\w*/,
+
+    //comment: $ => token(seq('\/\*[\s\S]*?\*\/')),
+
+    comment: $ => token(choice(
+      /\/\/.*/,
+      /\/\*[\s\S]*?\*\//
+    )),
+
+    SAY: $ => /say/i,
   }
 });
+

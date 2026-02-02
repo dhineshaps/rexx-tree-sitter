@@ -2,7 +2,6 @@
   "name": "tree-sitter-rexx",
   "version": "0.1.0",
   "description": "To Create Rexx Control Flow",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tree-sitter/tree-sitter-rexx.git"
